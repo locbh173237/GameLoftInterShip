@@ -35,13 +35,24 @@ void GSPlay::Init()
 	m_BackGround->Set2DPosition(screenWidth / 2, screenHeight / 2);
 	m_BackGround->SetSize(screenWidth, screenHeight);
 
-	
+	//resume button
+	texture = ResourceManagers::GetInstance()->GetTexture("button_resume");
+	std::shared_ptr<GameButton> button = std::make_shared<GameButton>(model, shader, texture);
+	button = std::make_shared<GameButton>(model, shader, texture);
+	button->Set2DPosition(screenWidth / 2, 300);
+	button->SetSize(200, 50);
+	button->SetOnClick([]() {
+		
+	});
+	m_listButton.push_back(button);
 
 	//text game title
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("arialbd");
 	m_score = std::make_shared< Text>(shader, font, "score: 50", TEXT_COLOR::RED, 1.0);
 	m_score->Set2DPosition(Vector2(5, 25));
+
+
 
 
 }

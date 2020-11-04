@@ -53,6 +53,7 @@ void GSMenu::Init()
 	button->Set2DPosition(screenWidth / 2, 400);
 	button->SetSize(200, 50);
 	button->SetOnClick([]() {
+		exit(0);
 	});
 	m_listButton.push_back(button);
 
